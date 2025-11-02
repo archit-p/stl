@@ -1,0 +1,18 @@
+cxx_library(
+    name = "vector",
+    exported_headers = [
+        "vector.h",
+    ],
+)
+
+cxx_test(
+    name = "vector_test",
+    srcs = [
+        "vector_test.cc"
+    ],
+    deps = [
+        ":vector",
+        "//third_party/googletest:gtest",
+        "//third_party/googletest:gmock",
+    ]
+)
