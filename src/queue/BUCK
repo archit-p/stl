@@ -1,0 +1,18 @@
+cxx_library(
+    name = "queue",
+    exported_headers = [
+        "queue.h",
+    ],
+)
+
+cxx_test(
+    name = "queue_test",
+    srcs = [
+        "queue_test.cc"
+    ],
+    deps = [
+        ":queue",
+        "//third_party/googletest:gtest",
+        "//third_party/googletest:gmock",
+    ]
+)
