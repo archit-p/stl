@@ -92,6 +92,40 @@ class vector {
 
   T* data() { return elements_; }
 
+  vector& operator=(const vector& other) {
+    if (this == &other) {
+      return *this;
+    }
+
+    capacity_ = other.capacity_;
+    size_ = other.size_;
+
+    delete[] elements_;
+
+    elements_ = new T[capacity_];
+    for (int i = 0; i < capacity_; i++) {
+      elements_[i] = other.elements_[i];
+    }
+
+    return *this;
+  }
+
+  vector& operator=(vector&& other) {
+    if (this == &other) {
+      return *this;
+    }
+
+    capacity_ = other.capacity_;
+    size_ = other.size_;
+
+    delete[] elements_;
+    elements_ = other.elements_;
+
+    other.elements_ = NULL;
+
+    return *this;
+  }
+
  private:
   void reserve(int capacity) {
     if (capacity <= capacity_) {

@@ -1,0 +1,26 @@
+cxx_library(
+    name = "unordered_map",
+    exported_headers = [
+        "unordered_map.h",
+    ],
+    deps = [
+        "//src/list:list",
+        "//src/vector:vector",
+    ],
+    exported_deps = [
+        "//src/list:list",
+        "//src/vector:vector",
+    ]
+)
+
+cxx_test(
+    name = "unordered_map_test",
+    srcs = [
+        "unordered_map_test.cc"
+    ],
+    deps = [
+        ":unordered_map",
+        "//third_party/googletest:gtest",
+        "//third_party/googletest:gmock",
+    ]
+)

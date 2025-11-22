@@ -1,7 +1,7 @@
 cxx_library(
-    name = "vector",
+    name = "list",
     exported_headers = [
-        "vector.h",
+        "list.h",
     ],
     visibility = [
         "PUBLIC",
@@ -9,12 +9,12 @@ cxx_library(
 )
 
 cxx_test(
-    name = "vector_test",
+    name = "list_test",
     srcs = [
-        "vector_test.cc"
+        "list_test.cc"
     ],
     deps = [
-        ":vector",
+        ":list",
         "//third_party/googletest:gtest",
         "//third_party/googletest:gmock",
     ]
